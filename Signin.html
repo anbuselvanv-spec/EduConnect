@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduConnect | Account</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+:root {
+    --navy: #021861;
+    --blue: #2550A4;
+    --yellow: #FFD700;
+    --white: #FFFFFF;
+    --ice: #F8FAFC;
+    --ink: #152344;
+    --muted: #64718A;
+    --line: #DCE4F0;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--ice);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1050px;
+    min-height: 650px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(2, 24, 97, 0.12);
+}
+
+/* LEFT PANEL */
+
+.welcome-panel {
+    background: var(--navy);
+    color: white;
+    padding: 55px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-panel::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    right: -100px;
+    bottom: -80px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 43px;
+    height: 43px;
+    background: var(--yellow);
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.brand h2 {
+    font-size: 23px;
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 1;
+}
+
+.welcome-content h1 {
+    font-size: 38px;
+    line-height: 1.25;
+    margin-bottom: 18px;
+}
+
+.welcome-content h1 span {
+    color: var(--yellow);
+}
+
+.welcome-content p {
+    color: #D7E1F5;
+    line-height: 1.8;
+    font-size: 15px;
+    max-width: 350px;
+}
+
+.features {
+    margin-top: 35px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 20px;
+    color: #E6ECFA;
+    font-size: 14px;
+}
+
+.feature-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    background: rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--yellow);
+}
+
+.welcome-footer {
+    color: #AAB9DB;
+    font-size: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+/* RIGHT PANEL */
+
+.form-panel {
+    padding: 45px 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.top-link {
+    text-align: right;
+    margin-bottom: 35px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.top-link a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-heading h2 {
+    font-size: 29px;
+    color: var(--ink);
+    margin-bottom: 9px;
+}
+
+.form-heading p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+/* TABS */
+
+.tabs {
+    display: flex;
+    background: #F0F3F9;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 27px;
+}
+
+.tab {
+    width: 50%;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.tab.active {
+    background: white;
+    color: var(--navy);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+/* INPUTS */
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 47px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0 14px;
+    outline: none;
+    font-size: 14px;
+    color: var(--ink);
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(37,80,164,0.09);
+}
+
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 65px;
+}
+
+.show-password {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    color: var(--blue);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* OPTIONS */
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 22px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.form-options a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.terms {
+    display: flex;
+    gap: 9px;
+    align-items: flex-start;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 5px 0 20px;
+}
+
+.terms input {
+    margin-top: 3px;
+    accent-color: var(--blue);
+}
+
+.terms a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+/* BUTTON */
+
+.submit-btn {
+    width: 100%;
+    height: 49px;
+    border: none;
+    background: var(--navy);
+    color: white;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: var(--blue);
+    transform: translateY(-2px);
+}
+
+.bottom-text {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 23px;
+}
+
+.bottom-text a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 800px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+    }
+
+    .welcome-panel {
+        padding: 30px;
+        min-height: 260px;
+        gap: 35px;
+    }
+
+    .welcome-content h1 {
+        font-size: 29px;
+    }
+
+    .features {
+        display: none;
+    }
+
+    .form-panel {
+        padding: 35px 25px;
+    }
+
+    .top-link {
+        margin-bottom: 25px;
+    }
+}
+
+@media(max-width: 400px) {
+    .form-panel {
+        padding: 25px 18px;
+    }
+
+    .welcome-panel {
+        padding: 25px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT WELCOME PANEL -->
+
+    <section class="welcome-panel">
+
+        <div class="brand">
+            <div class="logo">EC</div>
+            <h2>EduConnect</h2>
+        </div>
+
+        <div class="welcome-content">
+            <h1>Learn. Connect.<br><span>Grow Together.</span></h1>
+
+            <p>
+                Your journey towards knowledge and opportunities
+                starts here. Connect with learners, educators,
+                and mentors in one place.
+            </p>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">✓</div>
+                    Access learning resources
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">✓</div>
+                    Connect with educators
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">✓</div>
+                    Discover new opportunities
+                </div>
+            </div>
+        </div>
+
+        <div class="welcome-footer">
+            © 2026 EduConnect. All rights reserved.
+        </div>
+
+    </section>
+
+
+    <!-- RIGHT FORM PANEL -->
+
+    <section class="form-panel">
+
+        <div class="top-link">
+            <a href="http://127.0.0.1:5500/EduConnect_Homepage.html">← Back to Home</a>
+        </div>
+
+        <div class="form-heading">
+            <h2 id="heading">Create your account</h2>
+            <p id="description">Join EduConnect and start your learning journey.</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" id="signupTab"
+                onclick="showForm('signup')">
+                Create Account
+            </button>
+
+            <button class="tab" id="loginTab"
+                onclick="showForm('login')">
+                Sign In
+            </button>
+        </div>
+
+
+        <!-- CREATE ACCOUNT FORM -->
+
+        <form id="signupForm">
+
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname"
+                    placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="signupEmail">Email Address</label>
+                <input type="email" id="signupEmail"
+                    placeholder="name@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Select Your Role</label>
+                <select id="role" required>
+                    <option value="">Choose your role</option>
+                    <option>Student</option>
+                    <option>Teacher</option>
+                    <option>Mentor</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <div class="password-field">
+                    <input type="password" id="signupPassword"
+                        placeholder="Create a password" required minlength="8">
+                    <button type="button" class="show-password"
+                        onclick="togglePassword('signupPassword', this)">
+                        Show
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="password-field">
+                    <input type="password" id="confirmPassword"
+                        placeholder="Re-enter your password" required>
+                    <button type="button" class="show-password"
+                        onclick="togglePassword('confirmPassword', this)">
+                        Show
+                    </button>
+                </div>
+            </div>
+
+            <div class="terms">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">
+                    I agree to the <a href="#">Terms & Conditions</a>
+                    and <a href="#">Privacy Policy</a>.
+                </label>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Create Account →
+            </button>
+
+        </form>
+
+
+        <!-- SIGN IN FORM -->
+
+        <form id="loginForm" style="display:none;">
+
+            <div class="form-group">
+                <label for="loginEmail">Email Address</label>
+                <input type="email" id="loginEmail"
+                    placeholder="Enter your registered email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <div class="password-field">
+                    <input type="password" id="loginPassword"
+                        placeholder="Enter your password" required>
+                    <button type="button" class="show-password"
+                        onclick="togglePassword('loginPassword', this)">
+                        Show
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-options">
+                <label class="remember">
+                    <input type="checkbox">
+                    Remember me
+                </label>
+
+                <a href="#" onclick="forgotPassword(event)">
+                    Forgot Password?
+                </a>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Sign In →
+            </button>
+
+        </form>
+
+        <div class="bottom-text" id="bottomText">
+            Already have an account?
+            <a href="#" onclick="showForm('login'); return false;">
+                Sign in
+            </a>
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+
+// SWITCH BETWEEN FORMS
+
+function showForm(type) {
+
+    const signupForm = document.getElementById("signupForm");
+    const loginForm = document.getElementById("loginForm");
+
+    const signupTab = document.getElementById("signupTab");
+    const loginTab = document.getElementById("loginTab");
+
+    const heading = document.getElementById("heading");
+    const description = document.getElementById("description");
+    const bottomText = document.getElementById("bottomText");
+
+    if (type === "login") {
+
+        signupForm.style.display = "none";
+        loginForm.style.display = "block";
+
+        signupTab.classList.remove("active");
+        loginTab.classList.add("active");
+
+        heading.textContent = "Welcome Back";
+        description.textContent = "Sign in to continue to your EduConnect account.";
+
+        bottomText.innerHTML =
+            'New to EduConnect? <a href="#" onclick="showForm(\'signup\'); return false;">Create an account</a>';
+
+    } else {
+
+        signupForm.style.display = "block";
+        loginForm.style.display = "none";
+
+        loginTab.classList.remove("active");
+        signupTab.classList.add("active");
+
+        heading.textContent = "Create your account";
+        description.textContent = "Join EduConnect and start your learning journey.";
+
+        bottomText.innerHTML =
+            'Already have an account? <a href="#" onclick="showForm(\'login\'); return false;">Sign in</a>';
+    }
+}
+
+
+// SHOW AND HIDE PASSWORD
+
+function togglePassword(id, button) {
+
+    const password = document.getElementById(id);
+
+    if (password.type === "password") {
+        password.type = "text";
+        button.textContent = "Hide";
+    } else {
+        password.type = "password";
+        button.textContent = "Show";
+    }
+}
+
+
+// CREATE ACCOUNT VALIDATION
+
+document.getElementById("signupForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const password = document.getElementById("signupPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    alert("Account form submitted successfully! Connect a backend to register the account.");
+});
+
+
+// SIGN IN FORM
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    alert("Sign-in form submitted! Connect a backend to authenticate your account.");
+});
+
+
+// FORGOT PASSWORD
+
+function forgotPassword(event) {
+
+    event.preventDefault();
+    alert("Please connect a password-reset service to use this feature.");
+}
+
+</script>
+
+</body>
+</html>

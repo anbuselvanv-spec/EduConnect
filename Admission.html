@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduConnect | Admission Form</title>
+
+<style>
+:root {
+    --navy: #021861;
+    --blue: #2550A4;
+    --yellow: #FFD700;
+    --bg: #F8FAFC;
+    --white: #FFFFFF;
+    --ink: #152344;
+    --muted: #64718A;
+    --line: #DCE4F0;
+    --soft: #EDF2FA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    transition: .3s;
+}
+
+/* HEADER */
+
+header {
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    background: var(--navy);
+    color: var(--yellow);
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border-radius: 50% 50% 8px 50%;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.logo h2 {
+    color: var(--navy);
+    font-size: 20px;
+}
+
+.logo small {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-actions a {
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.theme-btn {
+    border: 1px solid var(--line);
+    background: transparent;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+/* PAGE TITLE */
+
+.page-banner {
+    background: var(--navy);
+    color: white;
+    padding: 45px 7%;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-banner::after {
+    content: "EC";
+    position: absolute;
+    right: 7%;
+    top: -25px;
+    font-size: 150px;
+    font-weight: bold;
+    color: rgba(255,255,255,.06);
+}
+
+.page-banner p {
+    color: var(--yellow);
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.page-banner h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    margin-bottom: 10px;
+}
+
+.page-banner span {
+    color: #D4DEF1;
+    font-size: 14px;
+}
+
+/* FORM CONTAINER */
+
+.container {
+    width: 90%;
+    max-width: 1050px;
+    margin: 40px auto;
+}
+
+.form-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 35px;
+    box-shadow: 0 12px 35px rgba(2,24,97,.07);
+}
+
+.form-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+}
+
+.form-heading h2 {
+    color: var(--navy);
+    font-size: 23px;
+}
+
+.form-heading p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.required-note {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* SECTION */
+
+.form-section {
+    margin-bottom: 32px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.section-number {
+    width: 32px;
+    height: 32px;
+    background: var(--yellow);
+    color: var(--navy);
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.section-heading h3 {
+    color: var(--navy);
+    font-size: 17px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* INPUT GRID */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+label {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--ink);
+}
+
+.required {
+    color: #D52B2B;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    background: var(--bg);
+    color: var(--ink);
+    outline: none;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 2px rgba(37,80,164,.10);
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+    accent-color: var(--blue);
+}
+
+/* RADIO OPTIONS */
+
+.radio-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 8px 0;
+}
+
+.radio-options label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+/* DIVIDER */
+
+.divider {
+    border: 0;
+    border-top: 1px solid var(--line);
+    margin: 30px 0;
+}
+
+/* DECLARATION */
+
+.declaration {
+    background: var(--soft);
+    padding: 18px;
+    border-radius: 6px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.declaration input {
+    width: auto;
+    margin-top: 3px;
+}
+
+.declaration label {
+    font-size: 12px;
+    line-height: 1.7;
+    font-weight: normal;
+}
+
+/* BUTTONS */
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.btn {
+    padding: 13px 23px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.reset-btn {
+    background: var(--soft);
+    color: var(--navy);
+}
+
+.submit-btn {
+    background: var(--navy);
+    color: white;
+}
+
+.submit-btn:hover {
+    background: var(--blue);
+    transform: translateY(-2px);
+}
+
+.reset-btn:hover {
+    background: var(--line);
+}
+
+/* SUCCESS MESSAGE */
+
+#successMessage {
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+    background: #EAF7EE;
+    border: 1px solid #9BD4A9;
+    border-radius: 6px;
+    color: #175C2A;
+    line-height: 1.7;
+}
+
+#successMessage h3 {
+    margin-bottom: 5px;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--navy);
+    color: white;
+    padding: 25px 6%;
+    text-align: center;
+    font-size: 11px;
+}
+
+footer span {
+    color: var(--yellow);
+}
+
+/* DARK MODE */
+
+body.dark {
+    --bg: #111A2D;
+    --white: #17233B;
+    --ink: #EAF0FC;
+    --muted: #AAB8D0;
+    --line: #34425E;
+    --soft: #202E49;
+}
+
+body.dark .logo h2,
+body.dark .form-heading h2,
+body.dark .section-heading h3 {
+    color: #F2F5FC;
+}
+
+body.dark .form-card {
+    box-shadow: none;
+}
+
+body.dark input,
+body.dark select,
+body.dark textarea {
+    color: white;
+}
+
+body.dark .theme-btn {
+    color: white;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:650px) {
+    header {
+        padding: 13px 5%;
+    }
+
+    .container {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    .form-card {
+        padding: 22px 17px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+    .form-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .page-banner {
+        padding: 35px 6%;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <div class="logo">
+        <div class="logo-icon">EC</div>
+        <div>
+            <h2>EduConnect</h2>
+            <small>LEARN · CONNECT · GROW</small>
+        </div>
+    </div>
+
+    <div class="header-actions">
+        <a href="index.html">← Back to Home</a>
+        <button class="theme-btn" id="themeToggle"
+                type="button" aria-label="Toggle theme">☾</button>
+    </div>
+</header>
+
+<!-- PAGE BANNER -->
+
+<section class="page-banner">
+    <p>EDUCONNECT / ADMISSIONS</p>
+    <h1>Start Your Learning Journey.</h1>
+    <span>Complete the admission form to register your interest in EduConnect.</span>
+</section>
+
+<!-- ADMISSION FORM -->
+
+<main class="container">
+
+<div class="form-card">
+
+    <div class="form-heading">
+        <div>
+            <h2>Admission Application</h2>
+            <p>Please provide the required information accurately.</p>
+        </div>
+        <span class="required-note">* Required fields</span>
+    </div>
+
+    <form id="admissionForm">
+
+        <!-- SECTION 1 -->
+
+        <section class="form-section">
+
+            <div class="section-heading">
+                <span class="section-number">01</span>
+                <div>
+                    <h3>Student Information</h3>
+                    <p>Enter your personal details.</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="studentName">Full Name <span class="required">*</span></label>
+                    <input type="text" id="studentName" name="studentName"
+                           placeholder="Enter your full name"
+                           maxlength="80" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">Date of Birth <span class="required">*</span></label>
+                    <input type="date" id="dob" name="dob"
+                           max="2026-11-07" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentEmail">Email Address <span class="required">*</span></label>
+                    <input type="email" id="studentEmail" name="studentEmail"
+                           placeholder="example@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentPhone">Mobile Number <span class="required">*</span></label>
+                    <input type="tel" id="studentPhone" name="studentPhone"
+                           placeholder="10-digit mobile number"
+                           pattern="[6-9][0-9]{9}"
+                           maxlength="10" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="address">Residential Address <span class="required">*</span></label>
+                    <textarea id="address" name="address"
+                              placeholder="Enter your complete address"
+                              required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City <span class="required">*</span></label>
+                    <input type="text" id="city" name="city"
+                           placeholder="Enter your city" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pincode">PIN Code <span class="required">*</span></label>
+                    <input type="text" id="pincode" name="pincode"
+                           placeholder="6-digit PIN code"
+                           pattern="[0-9]{6}"
+                           maxlength="6" required>
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- SECTION 2 -->
+
+        <section class="form-section">
+
+            <div class="section-heading">
+                <span class="section-number">02</span>
+                <div>
+                    <h3>Parent / Guardian Information</h3>
+                    <p>Provide a contact person for communication.</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="guardianName">Parent / Guardian Name <span class="required">*</span></label>
+                    <input type="text" id="guardianName" name="guardianName"
+                           placeholder="Enter guardian's name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="relationship">Relationship <span class="required">*</span></label>
+                    <select id="relationship" name="relationship" required>
+                        <option value="">Select relationship</option>
+                        <option>Father</option>
+                        <option>Mother</option>
+                        <option>Guardian</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="guardianPhone">Guardian Mobile Number <span class="required">*</span></label>
+                    <input type="tel" id="guardianPhone" name="guardianPhone"
+                           placeholder="10-digit mobile number"
+                           pattern="[6-9][0-9]{9}"
+                           maxlength="10" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="guardianEmail">Guardian Email</label>
+                    <input type="email" id="guardianEmail" name="guardianEmail"
+                           placeholder="Optional email address">
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- SECTION 3 -->
+
+        <section class="form-section">
+
+            <div class="section-heading">
+                <span class="section-number">03</span>
+                <div>
+                    <h3>Educational Background</h3>
+                    <p>Tell us about your previous education.</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="qualification">Highest Qualification <span class="required">*</span></label>
+                    <select id="qualification" name="qualification" required>
+                        <option value="">Select qualification</option>
+                        <option>Class 10</option>
+                        <option>Class 12</option>
+                        <option>Diploma</option>
+                        <option>Undergraduate</option>
+                        <option>Postgraduate</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="institution">School / College Name <span class="required">*</span></label>
+                    <input type="text" id="institution" name="institution"
+                           placeholder="Enter institution name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="passingYear">Year of Completion <span class="required">*</span></label>
+                    <select id="passingYear" name="passingYear" required>
+                        <option value="">Select year</option>
+                        <option>2026</option>
+                        <option>2025</option>
+                        <option>2024</option>
+                        <option>2023</option>
+                        <option>2022</option>
+                        <option>2021</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="percentage">Percentage / Grade</label>
+                    <input type="text" id="percentage" name="percentage"
+                           placeholder="Example: 85% or A Grade">
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- SECTION 4 -->
+
+        <section class="form-section">
+
+            <div class="section-heading">
+                <span class="section-number">04</span>
+                <div>
+                    <h3>Course Selection</h3>
+                    <p>Choose the learning area you are interested in.</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="course">Select Learning Program <span class="required">*</span></label>
+                    <select id="course" name="course" required>
+                        <option value="">Choose a program</option>
+                        <option>Academic Support</option>
+                        <option>Career Guidance</option>
+                        <option>Skill Development</option>
+                        <option>Exam Preparation</option>
+                        <option>Digital Learning</option>
+                        <option>Peer Community</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="duration">Preferred Duration <span class="required">*</span></label>
+                    <select id="duration" name="duration" required>
+                        <option value="">Select duration</option>
+                        <option>1 Month</option>
+                        <option>3 Months</option>
+                        <option>6 Months</option>
+                        <option>1 Year</option>
+                        <option>Not Decided</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Preferred Learning Mode <span class="required">*</span></label>
+                    <div class="radio-options">
+                        <label>
+                            <input type="radio" name="learningMode"
+                                   value="Online" required>
+                            Online
+                        </label>
+
+                        <label>
+                            <input type="radio" name="learningMode"
+                                   value="Offline">
+                            Offline
+                        </label>
+
+                        <label>
+                            <input type="radio" name="learningMode"
+                                   value="Hybrid">
+                            Hybrid
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="reason">Why do you want to join EduConnect?</label>
+                    <textarea id="reason" name="reason"
+                              placeholder="Tell us about your interests and learning goals..."></textarea>
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- SECTION 5 -->
+
+        <section class="form-section">
+
+            <div class="section-heading">
+                <span class="section-number">05</span>
+                <div>
+                    <h3>Declaration</h3>
+                    <p>Review your information before submitting.</p>
+                </div>
+            </div>
+
+            <div class="declaration">
+                <input type="checkbox" id="declaration"
+                       name="declaration" required>
+
+                <label for="declaration">
+                    I confirm that the information provided in this
+                    admission application is accurate to the best
+                    of my knowledge. I agree to be contacted by
+                    EduConnect regarding my application.
+                    <span class="required">*</span>
+                </label>
+            </div>
+
+        </section>
+
+        <!-- BUTTONS -->
+
+        <div class="form-buttons">
+            <button type="reset" class="btn reset-btn">
+                CLEAR FORM
+            </button>
+
+            <button type="submit" class="btn submit-btn">
+                SUBMIT APPLICATION →
+            </button>
+        </div>
+
+    </form>
+
+    <!-- SUCCESS MESSAGE -->
+
+    <div id="successMessage" role="status" aria-live="polite">
+        <h3>Application submitted successfully!</h3>
+        <p id="applicationNumber"></p>
+        <p>This is a demonstration confirmation. Your information
+           has not been saved to a server.</p>
+    </div>
+
+</div>
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    © 2026 <span>EduConnect.</span> Learn · Connect · Grow.
+</footer>
+
+<script>
+
+// DARK MODE
+
+const themeToggle = document.getElementById("themeToggle");
+
+try {
+    if (localStorage.getItem("educonnect-theme") === "dark") {
+        document.body.classList.add("dark");
+        themeToggle.textContent = "☀";
+    }
+} catch (error) {
+    // Theme still works for this page.
+}
+
+themeToggle.addEventListener("click", function() {
+
+    document.body.classList.toggle("dark");
+
+    const isDark = document.body.classList.contains("dark");
+
+    themeToggle.textContent = isDark ? "☀" : "☾";
+
+    try {
+        localStorage.setItem(
+            "educonnect-theme",
+            isDark ? "dark" : "light"
+        );
+    } catch (error) {
+        // Continue without saving.
+    }
+
+});
+
+// SET MAXIMUM DATE OF BIRTH
+
+document.getElementById("dob").max =
+    new Date().toISOString().split("T")[0];
+
+// FORM SUBMISSION
+
+const admissionForm = document.getElementById("admissionForm");
+
+admissionForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    if (!admissionForm.checkValidity()) {
+        admissionForm.reportValidity();
+        return;
+    }
+
+    const applicationId =
+        "EC" + Date.now().toString().slice(-8);
+
+    document.getElementById("applicationNumber").textContent =
+        "Your demonstration application number is: " + applicationId;
+
+    document.getElementById("successMessage").style.display = "block";
+
+    document.getElementById("successMessage").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+});
+
+</script>
+
+</body>
+</html>

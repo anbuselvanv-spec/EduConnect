@@ -1,0 +1,2458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="EduConnect — learn, connect and grow.">
+<title>EduConnect | Your Learning Space</title>
+
+<style>
+:root {
+    --navy:#021861;
+    --blue:#2550A4;
+    --yellow:#FFD700;
+    --ice:#F8FAFC;
+    --ink:#152344;
+    --muted:#64718A;
+    --line:#DCE4F0;
+    --soft:#EDF2FA;
+    --white:#FFFFFF;
+    --shadow:0 18px 45px rgba(2,24,97,.10);
+}
+
+* {
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html {
+    scroll-behavior:smooth;
+    scroll-padding-top:85px;
+}
+
+body {
+    font-family:Inter,Arial,sans-serif;
+    background:var(--ice);
+    color:var(--ink);
+    line-height:1.6;
+    transition:background .3s,color .3s;
+}
+
+a {
+    text-decoration:none;
+    color:inherit;
+}
+
+button,input,textarea,select {
+    font:inherit;
+}
+
+button {
+    cursor:pointer;
+}
+
+.container {
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+/* NAVIGATION */
+
+header {
+    height:82px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:var(--ice);
+    border-bottom:1px solid var(--line);
+    transition:background .3s;
+}
+
+.nav {
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.brand {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:190px;
+}
+
+.brand-symbol {
+    width:42px;
+    height:42px;
+    background:var(--navy);
+    color:var(--yellow);
+    display:grid;
+    place-items:center;
+    font-size:17px;
+    font-weight:900;
+    border-radius:50% 50% 8px 50%;
+}
+
+.brand-name {
+    font-size:20px;
+    font-weight:900;
+    color:var(--navy);
+    line-height:1.1;
+}
+
+.brand-sub {
+    display:block;
+    font-size:9px;
+    letter-spacing:1.7px;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin-top:3px;
+}
+
+.nav-links {
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a {
+    font-size:12px;
+    font-weight:800;
+    color:#40506D;
+}
+
+.nav-links a:hover {
+    color:var(--blue);
+}
+
+.nav-right {
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.nav-login {
+    padding:10px 15px;
+    border:1px solid var(--blue);
+    color:var(--blue);
+    font-size:11px;
+    font-weight:900;
+    border-radius:4px;
+    transition:.3s;
+    white-space:nowrap;
+}
+
+.nav-login:hover {
+    background:var(--blue);
+    color:white;
+}
+
+.nav-cta {
+    background:var(--yellow);
+    color:var(--navy);
+    font-size:12px;
+    font-weight:900;
+    padding:11px 17px;
+    border-radius:4px;
+    white-space:nowrap;
+}
+
+.theme-btn,.menu-btn {
+    height:39px;
+    width:39px;
+    border:1px solid var(--line);
+    background:transparent;
+    border-radius:50%;
+    color:var(--navy);
+    font-size:17px;
+}
+
+.menu-btn {
+    display:none;
+    border-radius:8px;
+}
+
+/* HERO SECTION */
+
+.hero {
+    padding:55px 0 70px;
+    overflow:hidden;
+}
+
+.hero-grid {
+    display:grid;
+    grid-template-columns:1.03fr .97fr;
+    gap:30px;
+    align-items:stretch;
+}
+
+.hero-copy {
+    padding:35px 0 35px 4.5%;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+}
+
+.overline {
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:2.5px;
+    color:var(--blue);
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.overline::before {
+    content:"";
+    width:35px;
+    height:3px;
+    background:var(--yellow);
+}
+
+.hero h1 {
+    font-size:clamp(46px,6.4vw,82px);
+    line-height:.99;
+    letter-spacing:-4px;
+    color:var(--navy);
+    margin:24px 0 22px;
+    font-weight:900;
+}
+
+.hero h1 em {
+    font-style:normal;
+    color:var(--blue);
+}
+
+.hero-copy>p {
+    max-width:490px;
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.85;
+}
+
+.hero-actions {
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.primary-btn {
+    background:var(--navy);
+    color:white;
+    padding:14px 21px;
+    font-size:12px;
+    font-weight:900;
+    border-radius:4px;
+    display:inline-flex;
+    gap:20px;
+    align-items:center;
+    transition:.3s;
+}
+
+.primary-btn:hover {
+    background:var(--blue);
+    transform:translateY(-3px);
+}
+
+.text-link {
+    font-size:12px;
+    font-weight:900;
+    color:var(--blue);
+    border-bottom:1px solid var(--blue);
+    padding-bottom:4px;
+}
+
+.hero-side {
+    min-height:490px;
+    position:relative;
+    background:var(--navy);
+    padding:34px;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+    border-radius:150px 8px 8px 8px;
+}
+
+.hero-side::before {
+    content:"";
+    position:absolute;
+    width:390px;
+    height:390px;
+    border:1px solid rgba(248,250,252,.22);
+    border-radius:50%;
+    top:-155px;
+    right:-90px;
+    box-shadow:0 0 0 38px rgba(248,250,252,.035),
+               0 0 0 80px rgba(248,250,252,.025);
+}
+
+.hero-side::after {
+    content:"";
+    position:absolute;
+    width:205px;
+    height:205px;
+    background:var(--yellow);
+    border-radius:50%;
+    top:45px;
+    right:80px;
+}
+
+.hero-side-content {
+    position:relative;
+    z-index:2;
+    color:white;
+    max-width:390px;
+}
+
+.hero-side-tag {
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:900;
+    color:var(--yellow);
+}
+
+.hero-side h2 {
+    font-size:35px;
+    line-height:1.12;
+    margin:13px 0;
+}
+
+.hero-side p {
+    font-size:13px;
+    color:#D4DEF1;
+    max-width:320px;
+}
+
+.hero-side-foot {
+    margin-top:30px;
+    border-top:1px solid rgba(255,255,255,.22);
+    padding-top:17px;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    font-size:11px;
+    color:#D4DEF1;
+}
+
+.hero-side-foot strong {
+    color:var(--yellow);
+}
+
+.hero-index {
+    position:absolute;
+    top:28px;
+    left:34px;
+    color:#D4DEF1;
+    font-size:11px;
+    letter-spacing:2px;
+    z-index:2;
+}
+
+/* QUICK LINKS */
+
+.quick-strip {
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:19px 0;
+}
+
+.quick-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+}
+
+.quick-item {
+    padding:4px 24px;
+    border-right:1px solid var(--line);
+}
+
+.quick-item:first-child {
+    padding-left:0;
+}
+
+.quick-item:last-child {
+    border:0;
+}
+
+.quick-item strong {
+    display:block;
+    color:var(--navy);
+    font-size:15px;
+}
+
+.quick-item span {
+    font-size:11px;
+    color:var(--muted);
+}
+
+/* COMMON SECTIONS */
+
+.section {
+    padding:90px 0;
+}
+
+.section-top {
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:30px;
+    margin-bottom:40px;
+}
+
+.section-top .intro {
+    max-width:630px;
+}
+
+.kicker {
+    font-size:10px;
+    letter-spacing:2.4px;
+    color:var(--blue);
+    font-weight:900;
+    text-transform:uppercase;
+}
+
+.section h2 {
+    font-size:clamp(31px,4vw,48px);
+    line-height:1.1;
+    letter-spacing:-1.8px;
+    color:var(--navy);
+    margin-top:12px;
+}
+
+.section-top p {
+    max-width:390px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ABOUT */
+
+.about {
+    background:var(--soft);
+}
+
+.about-layout {
+    display:grid;
+    grid-template-columns:.82fr 1.18fr;
+    gap:85px;
+    align-items:center;
+}
+
+.about-art {
+    height:390px;
+    background:var(--blue);
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    padding:30px;
+    overflow:hidden;
+    border-radius:8px 8px 100px 8px;
+}
+
+.about-art::before {
+    content:"";
+    position:absolute;
+    width:290px;
+    height:290px;
+    border:45px solid rgba(248,250,252,.12);
+    border-radius:50%;
+    top:-105px;
+    left:-80px;
+}
+
+.about-art::after {
+    content:"EC";
+    position:absolute;
+    right:20px;
+    top:18px;
+    color:rgba(248,250,252,.14);
+    font-size:100px;
+    font-weight:900;
+    letter-spacing:-10px;
+}
+
+.about-note {
+    background:var(--ice);
+    padding:25px;
+    position:relative;
+    z-index:1;
+    width:90%;
+    box-shadow:var(--shadow);
+}
+
+.about-note small {
+    font-size:10px;
+    letter-spacing:2px;
+    color:var(--blue);
+    font-weight:900;
+}
+
+.about-note h3 {
+    font-size:24px;
+    line-height:1.2;
+    color:var(--navy);
+    margin:9px 0;
+}
+
+.about-note p {
+    font-size:12px;
+    color:var(--muted);
+}
+
+.about-copy>p {
+    font-size:14px;
+    color:var(--muted);
+    margin:18px 0 23px;
+    max-width:620px;
+}
+
+.benefits {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px 25px;
+    margin:25px 0 30px;
+}
+
+.benefit {
+    display:flex;
+    gap:10px;
+    align-items:center;
+    font-size:12px;
+    font-weight:800;
+    color:#344563;
+}
+
+.benefit span {
+    height:24px;
+    width:24px;
+    display:grid;
+    place-items:center;
+    background:var(--yellow);
+    color:var(--navy);
+    border-radius:50%;
+    flex-shrink:0;
+}
+
+/* PROGRAMS */
+
+.programs {
+    background:var(--ice);
+}
+
+.program-layout {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:0 50px;
+}
+
+.program {
+    display:grid;
+    grid-template-columns:60px 1fr 28px;
+    gap:18px;
+    align-items:start;
+    padding:25px 0;
+    border-top:1px solid var(--line);
+}
+
+.program:nth-last-child(-n+2) {
+    border-bottom:1px solid var(--line);
+}
+
+.program-num {
+    font-size:12px;
+    font-weight:900;
+    color:var(--blue);
+    padding-top:4px;
+}
+
+.program-icon {
+    width:48px;
+    height:48px;
+    background:var(--soft);
+    color:var(--navy);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    font-size:19px;
+    margin-bottom:12px;
+}
+
+.program h3 {
+    font-size:18px;
+    color:var(--navy);
+    margin-bottom:5px;
+}
+
+.program p {
+    font-size:12px;
+    color:var(--muted);
+    max-width:330px;
+}
+
+.program a {
+    color:var(--blue);
+    font-size:21px;
+    font-weight:900;
+    align-self:center;
+    transition:.3s;
+}
+
+.program a:hover {
+    color:var(--navy);
+    transform:translate(3px,-3px);
+}
+
+/* COMMUNITY */
+
+.community {
+    background:var(--navy);
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+.community::after {
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:50%;
+    right:-180px;
+    bottom:-250px;
+    box-shadow:0 0 0 45px rgba(255,255,255,.025),
+               0 0 0 90px rgba(255,255,255,.02);
+}
+
+.community .section-top {
+    position:relative;
+    z-index:1;
+}
+
+.community h2 {
+    color:white;
+}
+
+.community .kicker {
+    color:var(--yellow);
+}
+
+.community .section-top p {
+    color:#C5D2E9;
+}
+
+.story-layout {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    position:relative;
+    z-index:1;
+}
+
+.story-card {
+    border:1px solid rgba(255,255,255,.2);
+    padding:25px;
+    display:grid;
+    grid-template-columns:65px 1fr;
+    gap:17px;
+    min-height:150px;
+}
+
+.story-number {
+    font-size:30px;
+    color:var(--yellow);
+    font-weight:900;
+    line-height:1;
+}
+
+.story-card small {
+    font-size:9px;
+    letter-spacing:1.8px;
+    color:var(--yellow);
+    font-weight:900;
+}
+
+.story-card h3 {
+    font-size:19px;
+    margin:5px 0;
+}
+
+.story-card p {
+    font-size:12px;
+    color:#C5D2E9;
+}
+
+.story-bottom {
+    position:relative;
+    z-index:1;
+    margin-top:28px;
+    padding:22px 25px;
+    background:var(--blue);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.story-bottom p {
+    font-size:13px;
+    color:white;
+}
+
+.story-bottom a {
+    background:var(--yellow);
+    color:var(--navy);
+    padding:11px 16px;
+    font-size:11px;
+    font-weight:900;
+    white-space:nowrap;
+}
+
+/* SCHEDULE */
+
+.schedule {
+    background:var(--soft);
+}
+
+.schedule-layout {
+    display:grid;
+    grid-template-columns:.75fr 1.25fr;
+    gap:65px;
+    align-items:center;
+}
+
+.schedule-aside {
+    background:var(--yellow);
+    padding:30px;
+    border-radius:8px 70px 8px 8px;
+}
+
+.schedule-aside span {
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:900;
+    color:var(--navy);
+}
+
+.schedule-aside h3 {
+    font-size:27px;
+    line-height:1.15;
+    color:var(--navy);
+    margin:14px 0;
+}
+
+.schedule-aside p {
+    font-size:12px;
+    color:#26395E;
+}
+
+.time-list {
+    border-top:1px solid #CBD6E7;
+}
+
+.time-row {
+    display:grid;
+    grid-template-columns:70px 1fr auto;
+    gap:18px;
+    align-items:center;
+    padding:24px 0;
+    border-bottom:1px solid #CBD6E7;
+}
+
+.time-symbol {
+    width:48px;
+    height:48px;
+    background:var(--navy);
+    color:var(--yellow);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    font-size:20px;
+}
+
+.time-row h3 {
+    font-size:16px;
+    color:var(--navy);
+}
+
+.time-row p {
+    font-size:11px;
+    color:var(--muted);
+}
+
+.time-row strong {
+    font-size:13px;
+    color:var(--blue);
+    white-space:nowrap;
+}
+
+.schedule-caption {
+    font-size:11px;
+    color:var(--muted);
+    margin-top:15px;
+}
+
+/* ALUMNI SLIDER */
+
+.alumni {
+    background:var(--ice);
+}
+
+.alumni-slider {
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.alumni-track {
+    flex:1;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:20px;
+    min-width:0;
+}
+
+.alumni-card {
+    display:none;
+    background:var(--soft);
+    border:1px solid var(--line);
+    padding:30px;
+    min-height:300px;
+    flex-direction:column;
+    align-items:flex-start;
+    animation:alumniFade .4s ease;
+}
+
+.alumni-card.visible {
+    display:flex;
+}
+
+@keyframes alumniFade {
+    from {
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.alumni-avatar {
+    width:65px;
+    height:65px;
+    background:var(--navy);
+    color:var(--yellow);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    font-size:21px;
+    font-weight:900;
+    margin-bottom:20px;
+}
+
+.alumni-label {
+    font-size:9px;
+    letter-spacing:2px;
+    color:var(--blue);
+    font-weight:900;
+}
+
+.alumni-card h3 {
+    font-size:22px;
+    color:var(--navy);
+    margin-top:7px;
+}
+
+.alumni-role {
+    font-size:12px;
+    font-weight:800;
+    color:var(--blue);
+    margin-bottom:15px;
+}
+
+.alumni-message {
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.8;
+}
+
+.alumni-year {
+    margin-top:auto;
+    padding-top:20px;
+    font-size:10px;
+    font-weight:900;
+    color:var(--navy);
+}
+
+.slider-btn {
+    flex-shrink:0;
+    width:42px;
+    height:42px;
+    border:1px solid var(--line);
+    background:var(--ice);
+    color:var(--navy);
+    border-radius:50%;
+    font-size:20px;
+    transition:.3s;
+}
+
+.slider-btn:hover {
+    background:var(--navy);
+    color:var(--yellow);
+}
+
+.slider-indicators {
+    display:flex;
+    justify-content:center;
+    gap:9px;
+    margin-top:25px;
+}
+
+.slider-indicators button {
+    width:9px;
+    height:9px;
+    border:0;
+    border-radius:50%;
+    background:#AAB8D0;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.slider-indicators button.active {
+    width:25px;
+    border-radius:10px;
+    background:var(--blue);
+}
+
+/* CONTACT */
+
+.contact-layout {
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:75px;
+}
+
+.contact-info h2 {
+    font-size:clamp(34px,4vw,50px);
+    line-height:1.05;
+    color:var(--navy);
+    letter-spacing:-2px;
+    margin:14px 0;
+}
+
+.contact-info>p {
+    font-size:13px;
+    color:var(--muted);
+    max-width:350px;
+    margin:17px 0 30px;
+}
+
+.contact-detail {
+    display:flex;
+    gap:13px;
+    align-items:center;
+    margin:19px 0;
+}
+
+.contact-detail b {
+    width:38px;
+    height:38px;
+    background:var(--navy);
+    color:var(--yellow);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+}
+
+.contact-detail strong {
+    display:block;
+    color:var(--navy);
+    font-size:12px;
+}
+
+.contact-detail span,.contact-detail a {
+    font-size:11px;
+    color:var(--muted);
+}
+
+/* ENQUIRY FORM */
+
+.form-box {
+    background:var(--soft);
+    padding:30px;
+    border-radius:8px 45px 8px 8px;
+}
+
+.form-box h3 {
+    font-size:23px;
+    color:var(--navy);
+}
+
+.form-box>p {
+    font-size:12px;
+    color:var(--muted);
+    margin:4px 0 22px;
+}
+
+.form-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:13px;
+}
+
+.field {
+    margin-bottom:14px;
+}
+
+.field label {
+    display:block;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.7px;
+    color:#354563;
+    margin-bottom:6px;
+}
+
+.field input,.field select,.field textarea {
+    width:100%;
+    padding:12px;
+    border:1px solid #CFD9E8;
+    background:var(--ice);
+    border-radius:4px;
+    color:var(--ink);
+    font-size:12px;
+    outline:none;
+}
+
+.field input:focus,.field select:focus,.field textarea:focus {
+    border-color:var(--blue);
+}
+
+.field textarea {
+    min-height:100px;
+    resize:vertical;
+}
+
+.submit-btn {
+    border:0;
+    background:var(--navy);
+    color:white;
+    padding:13px 19px;
+    border-radius:4px;
+    font-size:11px;
+    font-weight:900;
+}
+
+#formStatus {
+    font-size:11px;
+    color:var(--blue);
+    margin-top:10px;
+}
+
+/* FOOTER */
+
+footer {
+    background:#011344;
+    color:white;
+    padding:38px 0 18px;
+}
+
+.footer-main {
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    align-items:flex-start;
+}
+
+.footer-brand strong {
+    font-size:20px;
+}
+
+.footer-brand p {
+    font-size:11px;
+    color:#C5D2E9;
+    max-width:320px;
+    margin-top:8px;
+}
+
+.footer-links {
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+.footer-links a {
+    font-size:11px;
+    color:#D5E0F2;
+}
+
+.footer-links a:hover {
+    color:var(--yellow);
+}
+
+.footer-bottom {
+    border-top:1px solid rgba(255,255,255,.18);
+    margin-top:28px;
+    padding-top:15px;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    font-size:10px;
+    color:#AFC0DF;
+}
+
+/* FAQ CHAT ASSISTANT */
+
+.chat-toggle {
+    position:fixed;
+    right:23px;
+    bottom:22px;
+    z-index:200;
+    width:53px;
+    height:53px;
+    border:0;
+    border-radius:50%;
+    background:var(--yellow);
+    color:var(--navy);
+    font-size:22px;
+    font-weight:900;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.chat-toggle:hover {
+    transform:scale(1.08);
+}
+
+.chat-window {
+    display:none;
+    position:fixed;
+    right:23px;
+    bottom:85px;
+    width:330px;
+    max-width:calc(100% - 30px);
+    background:var(--ice);
+    border:1px solid var(--line);
+    z-index:200;
+    box-shadow:var(--shadow);
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.chat-window.open {
+    display:block;
+    animation:chatOpen .25s ease;
+}
+
+@keyframes chatOpen {
+    from {
+        opacity:0;
+        transform:translateY(12px);
+    }
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.chat-head {
+    background:var(--navy);
+    color:white;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.chat-head small {
+    display:block;
+    color:#C5D2E9;
+    font-size:10px;
+}
+
+.chat-head button {
+    background:none;
+    border:0;
+    color:white;
+    font-size:23px;
+}
+
+.chat-body {
+    padding:14px;
+    max-height:360px;
+    overflow:auto;
+}
+
+.chat-welcome,.chat-answer {
+    background:var(--soft);
+    padding:11px;
+    border-radius:7px;
+    font-size:11px;
+    margin-bottom:10px;
+    color:var(--ink);
+}
+
+.chat-options {
+    display:grid;
+    gap:7px;
+}
+
+.chat-options button {
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--ink);
+    text-align:left;
+    padding:9px;
+    border-radius:5px;
+    font-size:11px;
+    transition:.2s;
+}
+
+.chat-options button:hover {
+    border-color:var(--blue);
+    background:var(--soft);
+}
+
+.chat-answer {
+    display:none;
+    margin-top:10px;
+    margin-bottom:0;
+}
+
+.chat-answer.visible {
+    display:block;
+}
+
+/* DARK MODE */
+
+body.dark {
+    --ice:#111A2D;
+    --ink:#EAF0FC;
+    --muted:#AAB8D0;
+    --line:#34425E;
+    --soft:#1A2740;
+}
+
+body.dark header {
+    background:#111A2D;
+}
+
+body.dark .brand-name,
+body.dark .hero h1,
+body.dark .quick-item strong,
+body.dark .section h2,
+body.dark .contact-info h2,
+body.dark .contact-detail strong,
+body.dark .program h3,
+body.dark .time-row h3,
+body.dark .about-note h3 {
+    color:#F2F5FC;
+}
+
+body.dark .nav-links a,
+body.dark .benefit,
+body.dark .field label {
+    color:#DCE6F7;
+}
+
+body.dark .about,
+body.dark .schedule,
+body.dark .form-box {
+    background:#1A2740;
+}
+
+body.dark .about-note {
+    background:#111A2D;
+}
+
+body.dark .time-list,
+body.dark .time-row {
+    border-color:#34425E;
+}
+
+body.dark .field input,
+body.dark .field select,
+body.dark .field textarea {
+    background:#111A2D;
+    color:white;
+    border-color:#34425E;
+}
+
+body.dark .program-icon {
+    background:#1A2740;
+    color:var(--yellow);
+}
+
+body.dark .theme-btn,
+body.dark .menu-btn {
+    color:white;
+    border-color:#34425E;
+}
+
+body.dark .nav-login {
+    color:#DCE6F7;
+    border-color:#829AC4;
+}
+
+body.dark .alumni-card {
+    background:#1A2740;
+}
+
+body.dark .alumni-card h3,
+body.dark .alumni-year {
+    color:#F2F5FC;
+}
+
+body.dark .slider-btn {
+    background:#1A2740;
+    color:white;
+    border-color:#34425E;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width:900px) {
+    .nav-links {
+        gap:15px;
+    }
+
+    .nav-links a {
+        font-size:11px;
+    }
+
+    .hero-grid {
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero-side {
+        min-height:430px;
+    }
+
+    .about-layout,
+    .schedule-layout {
+        gap:35px;
+    }
+
+    .contact-layout {
+        gap:35px;
+    }
+}
+
+@media(max-width:720px) {
+    header {
+        height:72px;
+    }
+
+    .nav {
+        height:72px;
+    }
+
+    .menu-btn {
+        display:block;
+    }
+
+    .nav-links {
+        display:none;
+        position:absolute;
+        top:72px;
+        left:0;
+        right:0;
+        background:var(--ice);
+        padding:12px 5% 18px;
+        border-bottom:1px solid var(--line);
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+    }
+
+    .nav-links.active {
+        display:flex;
+    }
+
+    .nav-links a {
+        padding:12px 0;
+        border-bottom:1px solid var(--line);
+        font-size:13px;
+    }
+
+    .nav-cta {
+        display:none;
+    }
+
+    .hero {
+        padding:35px 0 45px;
+    }
+
+    .hero-grid {
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .hero-copy {
+        padding:25px 2%;
+    }
+
+    .hero-side {
+        min-height:390px;
+        border-radius:100px 8px 8px 8px;
+    }
+
+    .quick-grid {
+        grid-template-columns:1fr 1fr;
+        row-gap:18px;
+    }
+
+    .quick-item:nth-child(2) {
+        border:0;
+    }
+
+    .section {
+        padding:65px 0;
+    }
+
+    .section-top {
+        display:block;
+    }
+
+    .section-top>p {
+        margin-top:15px;
+    }
+
+    .about-layout,
+    .schedule-layout,
+    .contact-layout {
+        grid-template-columns:1fr;
+    }
+
+    .about-art {
+        height:320px;
+        max-width:520px;
+    }
+
+    .program-layout {
+        grid-template-columns:1fr;
+    }
+
+    .program:nth-last-child(2) {
+        border-bottom:0;
+    }
+
+    .story-layout {
+        grid-template-columns:1fr;
+    }
+
+    .story-bottom {
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .schedule-aside {
+        max-width:500px;
+    }
+
+    .footer-main {
+        flex-direction:column;
+    }
+
+    /* ALUMNI MOBILE SLIDER */
+
+    .alumni-track {
+        grid-template-columns:1fr;
+    }
+
+    .alumni-card {
+        min-height:290px;
+    }
+
+    .alumni-slider {
+        gap:8px;
+    }
+
+    .slider-btn {
+        width:35px;
+        height:35px;
+    }
+}
+
+@media(max-width:480px) {
+    .container {
+        width:91%;
+    }
+
+    .hero h1 {
+        font-size:52px;
+        letter-spacing:-3px;
+    }
+
+    .hero-side {
+        padding:25px;
+        min-height:365px;
+    }
+
+    .hero-side::after {
+        width:140px;
+        height:140px;
+        right:30px;
+        top:55px;
+    }
+
+    .hero-side h2 {
+        font-size:29px;
+    }
+
+    .hero-index {
+        left:25px;
+    }
+
+    .quick-item {
+        padding:4px 12px;
+    }
+
+    .quick-item:first-child {
+        padding-left:0;
+    }
+
+    .benefits,
+    .form-grid {
+        grid-template-columns:1fr;
+    }
+
+    .time-row {
+        grid-template-columns:48px 1fr;
+        gap:12px;
+    }
+
+    .time-row strong {
+        grid-column:2;
+    }
+
+    .form-box {
+        padding:22px;
+    }
+
+    .footer-links {
+        gap:13px;
+    }
+
+    .footer-bottom {
+        flex-direction:column;
+    }
+
+    .chat-toggle {
+        right:14px;
+        bottom:14px;
+    }
+
+    .chat-window {
+        right:14px;
+        bottom:76px;
+    }
+
+    .alumni-card {
+        padding:22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container nav">
+
+        <a class="brand" href="#home">
+            <span class="brand-symbol">EC</span>
+            <span>
+                <span class="brand-name">EduConnect</span>
+                <span class="brand-sub">Learn · Connect · Grow</span>
+            </span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#programs">Programs</a>
+            <a href="#community">Community</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#alumni">Alumni</a>
+            <a href="#contact">Contact</a>
+            <a href="Admission.html">Admission</a>
+        </nav>
+
+        <div class="nav-right">
+
+            <a class="nav-login" href="Signin.html">SIGN IN ↗</a>
+
+            <button class="theme-btn"
+                    id="themeToggle"
+                    type="button"
+                    title="Toggle dark mode"
+                    aria-label="Toggle dark mode">
+                ☾
+            </button>
+
+            <a class="nav-cta" href="#contact">LET'S CONNECT ↗</a>
+
+            <button class="menu-btn"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="Open menu"
+                    aria-expanded="false">
+                ☰
+            </button>
+
+        </div>
+    </div>
+</header>
+
+<main>
+
+<!-- HOME SECTION -->
+<section class="hero" id="home">
+    <div class="container hero-grid">
+
+        <div class="hero-copy">
+            <span class="overline">WELCOME TO EDUCONNECT</span>
+
+            <h1>
+                Learn with<br>
+                purpose.<br>
+                <em>Grow with</em><br>
+                people.
+            </h1>
+
+            <p>
+                A connected learning space where you can explore
+                new skills, find guidance and discover opportunities
+                that help you move forward.
+            </p>
+
+            <div class="hero-actions">
+                <a class="primary-btn" href="#programs">
+                    Explore learning areas <span>→</span>
+                </a>
+
+                <a class="text-link" href="#about">
+                    Discover our approach
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-side">
+            <span class="hero-index">01 — YOUR LEARNING JOURNEY</span>
+
+            <div class="hero-side-content">
+                <span class="hero-side-tag">CONNECT TO WHAT'S NEXT</span>
+
+                <h2>Your next opportunity starts with one step.</h2>
+
+                <p>
+                    Find helpful resources, build confidence and
+                    connect with a community that values learning.
+                </p>
+
+                <div class="hero-side-foot">
+                    <span>Curiosity creates possibility.</span>
+                    <strong>EDUCONNECT / 2026</strong>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- QUICK STRIP -->
+<div class="quick-strip">
+    <div class="container quick-grid">
+
+        <div class="quick-item">
+            <strong>Learn</strong>
+            <span>Build your foundations</span>
+        </div>
+
+        <div class="quick-item">
+            <strong>Discover</strong>
+            <span>Explore new directions</span>
+        </div>
+
+        <div class="quick-item">
+            <strong>Connect</strong>
+            <span>Meet your community</span>
+        </div>
+
+        <div class="quick-item">
+            <strong>Progress</strong>
+            <span>Keep moving forward</span>
+        </div>
+
+    </div>
+</div>
+
+<!-- ABOUT SECTION -->
+<section class="section about" id="about">
+    <div class="container about-layout">
+
+        <div class="about-art">
+            <div class="about-note">
+                <small>THE EDUCONNECT IDEA</small>
+
+                <h3>Learning works better when we grow together.</h3>
+
+                <p>
+                    Knowledge, guidance and connection — brought
+                    into one learning experience.
+                </p>
+            </div>
+        </div>
+
+        <div class="about-copy">
+            <span class="kicker">01 / ABOUT US</span>
+
+            <h2>More than a place to learn.</h2>
+
+            <p>
+                EduConnect is built around the belief that every
+                learner deserves access to useful information,
+                supportive guidance and meaningful connections.
+                It helps bring learning resources and opportunities
+                closer to the people who need them.
+            </p>
+
+            <div class="benefits">
+                <div class="benefit"><span>✓</span>Guidance for your next step</div>
+                <div class="benefit"><span>✓</span>Learning resources in one place</div>
+                <div class="benefit"><span>✓</span>Skills for real-world growth</div>
+                <div class="benefit"><span>✓</span>A supportive learning community</div>
+            </div>
+
+            <a class="primary-btn" href="#contact">
+                Get to know us <span>→</span>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROGRAMS SECTION -->
+<section class="section programs" id="programs">
+    <div class="container">
+
+        <div class="section-top">
+            <div class="intro">
+                <span class="kicker">02 / WHAT YOU CAN EXPLORE</span>
+                <h2>Find the area<br>that moves you.</h2>
+            </div>
+
+            <p>
+                Start with an interest, build a skill or get guidance
+                for a goal. Explore the learning areas available
+                through EduConnect.
+            </p>
+        </div>
+
+        <div class="program-layout">
+
+            <article class="program">
+                <span class="program-num">01</span>
+                <div>
+                    <div class="program-icon">▤</div>
+                    <h3>Academic Support</h3>
+                    <p>Strengthen subject knowledge with clear explanations, structured learning and practice.</p>
+                </div>
+                <a href="#contact" aria-label="Ask about Academic Support">↗</a>
+            </article>
+
+            <article class="program">
+                <span class="program-num">02</span>
+                <div>
+                    <div class="program-icon">⌁</div>
+                    <h3>Career Guidance</h3>
+                    <p>Explore career choices, understand possible pathways and plan your next move.</p>
+                </div>
+                <a href="#contact" aria-label="Ask about Career Guidance">↗</a>
+            </article>
+
+            <article class="program">
+                <span class="program-num">03</span>
+                <div>
+                    <div class="program-icon">✳</div>
+                    <h3>Skill Development</h3>
+                    <p>Develop communication, problem-solving and practical skills for the future.</p>
+                </div>
+                <a href="#contact" aria-label="Ask about Skill Development">↗</a>
+            </article>
+
+            <article class="program">
+                <span class="program-num">04</span>
+                <div>
+                    <div class="program-icon">◎</div>
+                    <h3>Exam Preparation</h3>
+                    <p>Organise revision, practice questions and focused preparation strategies.</p>
+                </div>
+                <a href="#contact" aria-label="Ask about Exam Preparation">↗</a>
+            </article>
+
+            <article class="program">
+                <span class="program-num">05</span>
+                <div>
+                    <div class="program-icon">⌘</div>
+                    <h3>Digital Learning</h3>
+                    <p>Discover useful digital tools and resources for independent learning.</p>
+                </div>
+                <a href="#contact" aria-label="Ask about Digital Learning">↗</a>
+            </article>
+
+            <article class="program">
+                <span class="program-num">06</span>
+                <div>
+                    <div class="program-icon">◉</div>
+                    <h3>Peer Community</h3>
+                    <p>Exchange ideas, share experiences and learn alongside other students.</p>
+                </div>
+                <a href="#community" aria-label="Explore the Peer Community">↗</a>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- COMMUNITY SECTION -->
+<section class="section community" id="community">
+    <div class="container">
+
+        <div class="section-top">
+            <div class="intro">
+                <span class="kicker">03 / COMMUNITY STORIES</span>
+                <h2>Every journey<br>has a story.</h2>
+            </div>
+
+            <p>
+                Learning is not only about the destination. It is
+                also about the people, experiences and small
+                milestones along the way.
+            </p>
+        </div>
+
+        <div class="story-layout">
+
+            <article class="story-card">
+                <span class="story-number">01</span>
+                <div>
+                    <small>CONFIDENCE</small>
+                    <h3>From questions to clarity</h3>
+                    <p>Discovering a subject, asking questions and building confidence one step at a time.</p>
+                </div>
+            </article>
+
+            <article class="story-card">
+                <span class="story-number">02</span>
+                <div>
+                    <small>DIRECTION</small>
+                    <h3>Finding a path forward</h3>
+                    <p>Exploring interests and turning ideas into clear, achievable learning goals.</p>
+                </div>
+            </article>
+
+            <article class="story-card">
+                <span class="story-number">03</span>
+                <div>
+                    <small>SKILLS</small>
+                    <h3>Progress through practice</h3>
+                    <p>Developing useful skills through curiosity, consistency and hands-on learning.</p>
+                </div>
+            </article>
+
+            <article class="story-card">
+                <span class="story-number">04</span>
+                <div>
+                    <small>TOGETHER</small>
+                    <h3>Better when connected</h3>
+                    <p>Sharing experiences and learning from the perspectives of other people.</p>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="story-bottom">
+            <p>
+                <strong>Have a story to share?</strong>
+                Add your learning milestone to the EduConnect community.
+            </p>
+
+            <a href="#contact">SHARE YOUR STORY ↗</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- SCHEDULE SECTION -->
+<section class="section schedule" id="schedule">
+    <div class="container schedule-layout">
+
+        <div class="schedule-aside">
+            <span>04 / MAKE TIME TO LEARN</span>
+            <h3>A little progress, every day.</h3>
+            <p>
+                Use these sample time blocks to create a steady
+                study routine. Confirm actual session timings
+                before making a visit.
+            </p>
+        </div>
+
+        <div>
+            <div class="time-list">
+
+                <div class="time-row">
+                    <span class="time-symbol">☀</span>
+                    <div>
+                        <h3>Morning Focus</h3>
+                        <p>Concept learning and focused study</p>
+                    </div>
+                    <strong>7:45 AM – 10:00 AM</strong>
+                </div>
+
+                <div class="time-row">
+                    <span class="time-symbol">◷</span>
+                    <div>
+                        <h3>Evening Practice</h3>
+                        <p>Revision, exercises and reflection</p>
+                    </div>
+                    <strong>5:30 PM – 7:30 PM</strong>
+                </div>
+
+            </div>
+
+            <p class="schedule-caption">
+                Sample timings only. Please confirm the current
+                schedule with the institution.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ALUMNI SECTION -->
+<section class="section alumni" id="alumni">
+    <div class="container">
+
+        <div class="section-top">
+            <div class="intro">
+                <span class="kicker">05 / OUR ALUMNI</span>
+                <h2>Success stories<br>that inspire.</h2>
+            </div>
+
+            <p>
+                Meet learners who have moved forward with confidence.
+                Their journeys inspire the next generation.
+            </p>
+        </div>
+
+        <div class="alumni-slider">
+
+            <button class="slider-btn"
+                    id="prevAlumni"
+                    type="button"
+                    aria-label="Previous alumni">
+                &#8592;
+            </button>
+
+            <div class="alumni-track" id="alumniTrack">
+
+                <article class="alumni-card visible">
+                    <div class="alumni-avatar">AK</div>
+                    <span class="alumni-label">ALUMNI STORY 01</span>
+                    <h3>Arun Kumar</h3>
+                    <p class="alumni-role">Software Developer</p>
+                    <p class="alumni-message">
+                        "EduConnect helped me improve my technical
+                        knowledge and build confidence to achieve
+                        my career goals."
+                    </p>
+                    <span class="alumni-year">Batch of 2023</span>
+                </article>
+
+                <article class="alumni-card visible">
+                    <div class="alumni-avatar">PS</div>
+                    <span class="alumni-label">ALUMNI STORY 02</span>
+                    <h3>Priya S</h3>
+                    <p class="alumni-role">Data Analyst</p>
+                    <p class="alumni-message">
+                        "The learning resources and guidance helped
+                        me discover my interests and develop
+                        practical skills."
+                    </p>
+                    <span class="alumni-year">Batch of 2024</span>
+                </article>
+
+                <article class="alumni-card">
+                    <div class="alumni-avatar">RK</div>
+                    <span class="alumni-label">ALUMNI STORY 03</span>
+                    <h3>Rahul K</h3>
+                    <p class="alumni-role">Entrepreneur</p>
+                    <p class="alumni-message">
+                        "Connecting with other learners gave me
+                        new ideas and the confidence to turn
+                        my plans into action."
+                    </p>
+                    <span class="alumni-year">Batch of 2022</span>
+                </article>
+
+                <article class="alumni-card">
+                    <div class="alumni-avatar">DM</div>
+                    <span class="alumni-label">ALUMNI STORY 04</span>
+                    <h3>Divya M</h3>
+                    <p class="alumni-role">UI/UX Designer</p>
+                    <p class="alumni-message">
+                        "Consistent practice and skill development
+                        helped me prepare for opportunities
+                        in the digital world."
+                    </p>
+                    <span class="alumni-year">Batch of 2025</span>
+                </article>
+
+            </div>
+
+            <button class="slider-btn"
+                    id="nextAlumni"
+                    type="button"
+                    aria-label="Next alumni">
+                &#8594;
+            </button>
+
+        </div>
+
+        <div class="slider-indicators" id="alumniDots">
+            <button class="active" data-slide="0" type="button" aria-label="Show alumni 1"></button>
+            <button data-slide="1" type="button" aria-label="Show alumni 2"></button>
+            <button data-slide="2" type="button" aria-label="Show alumni 3"></button>
+            <button data-slide="3" type="button" aria-label="Show alumni 4"></button>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="section" id="contact">
+    <div class="container contact-layout">
+
+        <div class="contact-info">
+            <span class="kicker">06 / GET IN TOUCH</span>
+
+            <h2>Let's start a conversation.</h2>
+
+            <p>
+                Want to know more about learning support, guidance
+                or community activities? Send your question to EduConnect.
+            </p>
+
+            <div class="contact-detail">
+                <b>⌖</b>
+                <div>
+                    <strong>Visit us</strong>
+                    <span>Update with your official address</span>
+                </div>
+            </div>
+
+            <div class="contact-detail">
+                <b>☎</b>
+                <div>
+                    <strong>Call us</strong>
+                    <span>
+                        <a href="tel:+910000000000">Add your contact number</a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="contact-detail">
+                <b>✉</b>
+                <div>
+                    <strong>Email us</strong>
+                    <span>
+                        <a href="mailto:hello@educonnect.example">
+                            hello@educonnect.example
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ENQUIRY FORM -->
+        <form class="form-box" id="enquiryForm">
+            <h3>Send an enquiry</h3>
+
+            <p>Share a few details and tell us what you are looking for.</p>
+
+            <div class="form-grid">
+                <div class="field">
+                    <label for="name">YOUR NAME</label>
+                    <input id="name" name="name" type="text"
+                           placeholder="Full name" required>
+                </div>
+
+                <div class="field">
+                    <label for="phone">PHONE NUMBER</label>
+                    <input id="phone" name="phone" type="tel"
+                           placeholder="Mobile number" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="email">EMAIL ADDRESS</label>
+                <input id="email" name="email" type="email"
+                       placeholder="name@example.com" required>
+            </div>
+
+            <div class="field">
+                <label for="interest">I AM INTERESTED IN</label>
+                <select id="interest" name="interest" required>
+                    <option value="">Select an area</option>
+                    <option>Academic Support</option>
+                    <option>Career Guidance</option>
+                    <option>Skill Development</option>
+                    <option>Exam Preparation</option>
+                    <option>Digital Learning</option>
+                    <option>Peer Community</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="message">MESSAGE</label>
+                <textarea id="message" name="message"
+                          placeholder="Write your question here..."
+                          required></textarea>
+            </div>
+
+            <button class="submit-btn" type="submit">
+                SUBMIT ENQUIRY →
+            </button>
+
+            <p id="formStatus" role="status"></p>
+        </form>
+
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+
+        <div class="footer-main">
+            <div class="footer-brand">
+                <strong>EduConnect<span style="color:var(--yellow)">.</span></strong>
+                <p>
+                    Learn with purpose. Connect with people.
+                    Grow towards your goals.
+                </p>
+            </div>
+
+            <nav class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#programs">Programs</a>
+                <a href="#community">Community</a>
+                <a href="#schedule">Schedule</a>
+                <a href="#alumni">Alumni</a>
+                <a href="#contact">Contact</a>
+                <a href="Signin.html">Sign In</a>
+                <a href="Admission.html">Admission</a>
+            </nav>
+        </div>
+
+        <div class="footer-bottom">
+            <span>
+                © <span id="currentYear"></span>
+                EduConnect. All rights reserved.
+            </span>
+
+            <span>LEARN · CONNECT · GROW</span>
+        </div>
+
+    </div>
+</footer>
+
+<!-- CHAT BUTTON -->
+<button class="chat-toggle"
+        id="chatToggle"
+        type="button"
+        aria-label="Open FAQ assistant">
+    ?
+</button>
+
+<!-- CHAT WINDOW -->
+<div class="chat-window" id="chatWindow">
+
+    <div class="chat-head">
+        <div>
+            <strong>EduConnect Guide</strong>
+            <small>Frequently asked questions</small>
+        </div>
+
+        <button id="chatClose"
+                type="button"
+                aria-label="Close FAQ">
+            ×
+        </button>
+    </div>
+
+    <div class="chat-body">
+
+        <div class="chat-welcome">
+            Welcome to EduConnect! Choose a question below to get started.
+        </div>
+
+        <div class="chat-options">
+            <button data-question="programs" type="button">
+                What learning areas are available?
+            </button>
+
+            <button data-question="about" type="button">
+                What is EduConnect?
+            </button>
+
+            <button data-question="schedule" type="button">
+                What are the sample timings?
+            </button>
+
+            <button data-question="alumni" type="button">
+                Can I see alumni stories?
+            </button>
+
+            <button data-question="contact" type="button">
+                How can I contact EduConnect?
+            </button>
+
+            <button data-question="enquiry" type="button">
+                How do I send an enquiry?
+            </button>
+        </div>
+
+        <div class="chat-answer" id="chatAnswer"></div>
+
+    </div>
+</div>
+
+<script>
+
+// GET ELEMENTS
+const get = id => document.getElementById(id);
+
+// MOBILE NAVIGATION
+const menu = get("menuToggle");
+const nav = get("navLinks");
+
+menu.addEventListener("click", () => {
+    const open = nav.classList.toggle("active");
+
+    menu.setAttribute("aria-expanded", String(open));
+    menu.textContent = open ? "×" : "☰";
+});
+
+// CLOSE MOBILE MENU AFTER CLICKING A LINK
+document.querySelectorAll("#navLinks a").forEach(link => {
+    link.addEventListener("click", () => {
+        nav.classList.remove("active");
+        menu.setAttribute("aria-expanded", "false");
+        menu.textContent = "☰";
+    });
+});
+
+// DARK MODE
+const theme = get("themeToggle");
+
+try {
+    if (localStorage.getItem("educonnect-theme") === "dark") {
+        document.body.classList.add("dark");
+        theme.textContent = "☀";
+    }
+} catch (error) {
+    // Dark mode will still work for the current page.
+}
+
+theme.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    const dark = document.body.classList.contains("dark");
+
+    theme.textContent = dark ? "☀" : "☾";
+
+    try {
+        localStorage.setItem(
+            "educonnect-theme",
+            dark ? "dark" : "light"
+        );
+    } catch (error) {
+        // Continue without saving the preference.
+    }
+});
+
+// DISPLAY CURRENT YEAR
+get("currentYear").textContent = new Date().getFullYear();
+
+// ALUMNI SLIDER
+const alumniCards = document.querySelectorAll(".alumni-card");
+const alumniDots = document.querySelectorAll("#alumniDots button");
+
+let alumniIndex = 0;
+
+function showAlumni(index) {
+
+    alumniIndex =
+        (index + alumniCards.length) % alumniCards.length;
+
+    const isMobile = window.innerWidth <= 720;
+
+    alumniCards.forEach((card, i) => {
+
+        let visible;
+
+        if (isMobile) {
+            visible = i === alumniIndex;
+        } else {
+            const secondIndex =
+                (alumniIndex + 1) % alumniCards.length;
+
+            visible =
+                i === alumniIndex || i === secondIndex;
+        }
+
+        card.classList.toggle("visible", visible);
+    });
+
+    alumniDots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === alumniIndex);
+    });
+}
+
+// NEXT ALUMNI
+get("nextAlumni").addEventListener("click", () => {
+    showAlumni(alumniIndex + 1);
+});
+
+// PREVIOUS ALUMNI
+get("prevAlumni").addEventListener("click", () => {
+    showAlumni(alumniIndex - 1);
+});
+
+// CLICK SLIDE INDICATORS
+alumniDots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+        showAlumni(index);
+    });
+});
+
+// AUTOMATIC SLIDING
+let alumniTimer = setInterval(() => {
+    showAlumni(alumniIndex + 1);
+}, 4000);
+
+// UPDATE SLIDER WHEN SCREEN SIZE CHANGES
+window.addEventListener("resize", () => {
+    showAlumni(alumniIndex);
+});
+
+// SHOW FIRST ALUMNI SLIDE
+showAlumni(0);
+
+// CHAT WINDOW
+const chat = get("chatWindow");
+
+get("chatToggle").addEventListener("click", () => {
+    chat.classList.toggle("open");
+});
+
+get("chatClose").addEventListener("click", () => {
+    chat.classList.remove("open");
+});
+
+// FAQ ANSWERS
+const answers = {
+
+    programs:
+        "EduConnect includes Academic Support, Career Guidance, " +
+        "Skill Development, Exam Preparation, Digital Learning " +
+        "and Peer Community. Contact the institution to confirm " +
+        "which services are currently available.",
+
+    about:
+        "EduConnect is a learning space designed to connect " +
+        "students with learning resources, guidance and opportunities.",
+
+    schedule:
+        "The sample timings shown are Morning Focus: 7:45 AM " +
+        "to 10:00 AM and Evening Practice: 5:30 PM to 7:30 PM. " +
+        "Confirm the current schedule before visiting.",
+
+    alumni:
+        "Visit the Alumni section to explore alumni profiles, " +
+        "career details and their learning experiences.",
+
+    contact:
+        "Use the contact section on this page. Replace the " +
+        "sample address, phone number and email with official " +
+        "details before publishing.",
+
+    enquiry:
+        "Complete the enquiry form in the Contact section. " +
+        "This demo opens an email draft in your email application; " +
+        "it does not send information to a website server."
+};
+
+// DISPLAY FAQ ANSWER
+document.querySelectorAll("[data-question]").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const answerBox = get("chatAnswer");
+
+        answerBox.textContent =
+            answers[button.dataset.question] ||
+            "Please use the Contact section for more information.";
+
+        answerBox.classList.add("visible");
+    });
+});
+
+// ENQUIRY FORM
+get("enquiryForm").addEventListener("submit", event => {
+
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
+
+    const subject = encodeURIComponent(
+        "EduConnect enquiry - " + data.get("interest")
+    );
+
+    const body = encodeURIComponent(
+        "Name: " + data.get("name") +
+        "\nPhone: " + data.get("phone") +
+        "\nEmail: " + data.get("email") +
+        "\nInterest: " + data.get("interest") +
+        "\n\nMessage:\n" + data.get("message")
+    );
+
+    get("formStatus").textContent =
+        "Opening your email application. Replace " +
+        "hello@educonnect.example in the code with your official email address.";
+
+    window.location.href =
+        "mailto:hello@educonnect.example?subject=" +
+        subject + "&body=" + body;
+});
+
+</script>
+
+</body>
+</html>
